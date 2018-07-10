@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -53,13 +55,13 @@ app.get('/about', (request, response) => {
 
 
 //create a route at /bad
-//send back an error, with jason errorMessage
+//send back an error, with json errorMessage
 app.get('/bad', (request, response) => {
     response.send({
         errorMessage: 'Bad request.  Do not do that'
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}.`);
 });
