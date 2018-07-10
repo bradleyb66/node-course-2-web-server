@@ -62,6 +62,20 @@ app.get('/bad', (request, response) => {
     });
 });
 
+// create a new projects page to the web site
+//  page will link to github projects
+//  create the url, handlebars template
+//  new view file, header and footer
+//  just put a message in 'portfolio goes here'
+//  add a new link to the header, to the new projects page
+//  once done, and tested locally, push it up to github
+//  then do git push heroku, open app in the browser
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs', {
+        pageTitle: 'BB Projects Page'
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
 });
